@@ -1,0 +1,68 @@
+<extend name="public" />
+<block name="title"><title>商品管理</title></block>
+<block name="content"> 
+ <div id="mws-container" class="clearfix">
+  <div class="mws-panel grid_8"> 
+   <div class="mws-panel-header"> 
+    <span><i class="icon-table"></i> 商品管理</span> 
+   </div> 
+   <div class="mws-panel-body no-padding"> 
+    <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper" role="grid">
+     <form action="__APP__?m=home&c=index&a=index" method="post">
+     <div class="dataTables_filter" id="DataTables_Table_1_filter">
+      <label>搜索: <input  type="text" name="keywords" value=""/></label><input type="submit" value="搜索">
+     </div>
+ </form>
+
+<div id="DataTables_Table_1_wrapper" class="dataTables_wrapper" role="grid"><table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1" aria-describedby="DataTables_Table_1_info">
+ <thead> 
+       <tr role="row">
+         
+          <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 134px;" aria-label="Browser: activate to sort column ascending">ID</th>
+          <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 124px;" aria-label="Platform(s): activate to sort column ascending">商品名称</th>
+          <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 124px;" aria-label="Platform(s): activate to sort column ascending">价格</th>
+
+          <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 55px;" aria-label="CSS grade: activate to sort column ascending">商品描述</th>
+          <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 55px;" aria-label="CSS grade: activate to sort column ascending">图片</th>
+          <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 55px;" aria-label="CSS grade: activate to sort column ascending">类别</th>
+          <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 55px;" aria-label="CSS grade: activate to sort column ascending">状态</th>
+          <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 55px;" aria-label="CSS grade: activate to sort column ascending">操作</th>
+       </tr> 
+      </thead> 
+      <tbody role="alert" aria-live="polite" aria-relevant="all">
+       <foreach name="info" item="row">
+
+                                   <tr class="odd">
+                                    
+                                    <td class="  sorting_1">{$row['gid']}</td>
+                                    <td class=" ">{$row['gname']}</td>
+                                    <td class=" ">{$row['price']}</td>
+                                    
+                                    <td class=" ">{$row['descr']}</td>
+                                    <td class=" "><img src="{$row['pic']}"</td>
+                                    <td class=" ">{$row['cname']}</td>
+                                    <if condition= "$row['state'] eq 1">
+                                    <td class=" ">出售中</td>
+                                    </if>
+                                   <if condition= "$row['state'] eq 2">
+                                    <td class=" ">仓库中</td>
+                                    </if>
+                                   <td class=" "><a href="__APP__?m=home&c=index&a=delete&id={$row['gid']}"><i class="icon-trash"></i></a>
+                                    &nbsp;&nbsp;
+                                    <a href="__APP__?m=home&c=index&a=update&id={$row['gid']}"><i class="icon-wrench"></i></a></li>
+                                    
+                                    
+                                </tr>
+                        </foreach>
+      </tbody>
+
+<div class="dataTables_info" id="pages" >
+                           {$page}
+                        </div>
+   </div> 
+
+
+
+  </div>
+
+</block>

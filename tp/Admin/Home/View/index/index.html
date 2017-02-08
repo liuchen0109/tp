@@ -1,0 +1,54 @@
+<extend name="public" />
+<block name="title"><title>用户管理</title></block>
+<block name="content"> 
+ <div id="mws-container" class="clearfix">
+  <div class="mws-panel grid_8"> 
+   <div class="mws-panel-header"> 
+    <span><i class="icon-table"></i> 用户列表</span> 
+   </div> 
+   <div class="mws-panel-body no-padding"> 
+    <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper" role="grid">
+     <form action="__APP__?m=home&c=index&a=index" method="post">
+     <div class="dataTables_filter" id="DataTables_Table_1_filter">
+      <label>搜索: <input  type="text" name="keywords" value=""/></label><input type="submit" value="搜索">
+     </div>
+ </form>
+
+<div id="DataTables_Table_1_wrapper" class="dataTables_wrapper" role="grid"><table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1" aria-describedby="DataTables_Table_1_info">
+ <thead>
+      <tr role="row">
+         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 134px;" aria-label="Browser: activate to sort column ascending">ID</th>
+          <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 124px;" aria-label="Platform(s): activate to sort column ascending">用户名</th>
+         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 80px;" aria-label="Engine version: activate to sort column ascending">邮箱</th>
+         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 55px;" aria-label="CSS grade: activate to sort column ascending">权限</th>
+       
+        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 55px;" aria-label="CSS grade: activate to sort column ascending">操作</th>
+
+        </tr>
+        </thead>
+                            
+         <tbody role="alert" aria-live="polite" aria-relevant="all">
+           <foreach name="info" item="row">
+
+                   <tr class="odd">
+                    <td class="  sorting_1">{$row['id']}</td>
+                    <td class=" ">{$row['username']}</td>
+                    <td class=" ">{$row['email']}</td>
+                    <td class=" ">{$row['state']}</td>
+                    
+                    <td class=" "><a href="__APP__?m=home&c=index&a=delete&id={$row['id']}"><i class="icon-trash"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="__APP__?m=home&c=index&a=edit&id={$row['id']}"><i class="icon-wrench"></i></a></li></td>
+                </tr>
+            </foreach>
+
+                 </div>
+             </table>
+<div class="dataTables_info" id="pages" >
+                           {$page}
+                        </div>
+   </div> 
+
+
+
+  </div>
+
+</block>
